@@ -37,7 +37,7 @@
         _bars                = [NSMutableArray array];
         _xLabelSkip          = 1;
         _yLabelSum           = 4;
-        _labelMarginTop      = 0;
+        _labelMarginTop      = 10;
         _chartMargin         = 15.0;
         _barRadius           = 2.0;
         _showChartBorder     = NO;
@@ -130,8 +130,11 @@
         float yLabelSectionHeight = (self.frame.size.height - _chartMargin * 2 - xLabelHeight) / _yLabelSum;
         
         for (int index = 0; index < _yLabelSum; index++) {
-
-            NSString *labelText = _yLabelFormatter((float)_yValueMax * ( (_yLabelSum - index) / (float)_yLabelSum ));
+            
+            NSString *labelText = nil;
+            if (_yLabelFormatter) {
+                labelText = _yLabelFormatter((float)_yValueMax * ( (_yLabelSum - index) / (float)_yLabelSum ));
+            }
             
             PNChartLabel * label = [[PNChartLabel alloc] initWithFrame:CGRectMake(0,
                                                                                   yLabelSectionHeight * index + _chartMargin - yLabelHeight/2.0,
