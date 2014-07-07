@@ -107,17 +107,25 @@
             labelAddCount += 1;
             
             if (labelAddCount == _xLabelSkip) {
-                NSString *labelText = _xLabels[index];
-                PNChartLabel * label = [[PNChartLabel alloc] initWithFrame:CGRectZero];
+                PNChartLabel * label = [[PNChartLabel alloc] initWithFrame:CGRectMake(0, 0, xLabalAbsWidth, xLabelHeight)];
                 label.font = _labelFont;
+                label.numberOfLines = 2;
                 label.textColor = _labelTextColor;
                 [label setTextAlignment:NSTextAlignmentCenter];
-                label.text = labelText;
-                [label sizeToFit];
-                CGFloat labelXPosition  = (index *  _xLabelWidth + _chartMargin + _xLabelWidth /2.0 );
                 
-                label.center = CGPointMake(labelXPosition,
-                                           self.frame.size.height - xLabelHeight - _chartMargin + label.frame.size.height /2.0 + _labelMarginTop);
+                // support attributed text
+                NSObject *labelTextObject = _xLabels[index];
+                if ([labelTextObject class] == [NSString class]) {
+                    label.text = (NSString *)labelTextObject;
+                }
+                else {
+                    label.attributedText = (NSAttributedString *)labelTextObject;
+                }
+
+                CGFloat labelXPosition  = (index * _xLabelWidth + _chartMargin + _xLabelWidth / 2.0 );
+                CGFloat labelYPosition  = (self.frame.size.height - xLabelHeight - xLabelPosAdj - _chartMargin + label.frame.size.height / 2.0 + _labelMarginTop);
+                
+                label.center = CGPointMake(labelXPosition, labelYPosition);
                 labelAddCount = 0;
                 
                 [_labels addObject:label];
