@@ -95,8 +95,11 @@
     _strokeColor = strokeColor;
 }
 
+- (void)strokeChart {
+    [self strokeChartWithAnimation:YES];
+}
 
-- (void)strokeChart
+- (void)strokeChartWithAnimation:(BOOL)animated
 {
     [self viewCleanupForCollection:_labels];
     //Add Labels
@@ -214,7 +217,7 @@
         }
         
         //Height Of Bar
-        bar.grade = grade;
+        [bar setGrade:grade animated:animated];
         
         //For Click Index
         bar.tag = index;
@@ -246,13 +249,14 @@
         
         _chartBottomLine.strokeColor = PNLightGrey.CGColor;
         
-        
-        CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-        pathAnimation.duration = 0.5;
-        pathAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-        pathAnimation.fromValue = @0.0f;
-        pathAnimation.toValue = @1.0f;
-        [_chartBottomLine addAnimation:pathAnimation forKey:@"strokeEndAnimation"];
+        if (animated) {
+            CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+            pathAnimation.duration = 0.5;
+            pathAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+            pathAnimation.fromValue = @0.0f;
+            pathAnimation.toValue = @1.0f;
+            [_chartBottomLine addAnimation:pathAnimation forKey:@"strokeEndAnimation"];
+        }
         
         _chartBottomLine.strokeEnd = 1.0;
         
@@ -279,12 +283,14 @@
         _chartLeftLine.strokeColor = PNLightGrey.CGColor;
         
         
-        CABasicAnimation *pathLeftAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-        pathLeftAnimation.duration = 0.5;
-        pathLeftAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-        pathLeftAnimation.fromValue = @0.0f;
-        pathLeftAnimation.toValue = @1.0f;
-        [_chartLeftLine addAnimation:pathLeftAnimation forKey:@"strokeEndAnimation"];
+        if (animated) {
+            CABasicAnimation *pathLeftAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+            pathLeftAnimation.duration = 0.5;
+            pathLeftAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+            pathLeftAnimation.fromValue = @0.0f;
+            pathLeftAnimation.toValue = @1.0f;
+            [_chartLeftLine addAnimation:pathLeftAnimation forKey:@"strokeEndAnimation"];
+        }
         
         _chartLeftLine.strokeEnd = 1.0;
         

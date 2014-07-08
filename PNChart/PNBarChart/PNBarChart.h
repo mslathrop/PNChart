@@ -27,6 +27,8 @@ typedef NSString *(^PNyLabelFromatter)(CGFloat yLabelValue);
 
 - (void)strokeChart;
 
+- (void)strokeChartWithAnimation:(BOOL)animated;
+
 @property (nonatomic) NSArray *xLabels;
 @property (nonatomic) NSArray *yLabels;
 @property (nonatomic) NSArray *yValues;

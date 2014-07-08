@@ -13,6 +13,8 @@
 
 - (void)rollBack;
 
+- (void)setGrade:(float)grade animated:(BOOL)animated;
+
 @property (nonatomic) float grade;
 @property (nonatomic) CAShapeLayer *chartLine;
 @property (nonatomic) UIColor *barColor;
