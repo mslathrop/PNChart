@@ -101,6 +101,11 @@
 
 - (void)strokeChartWithAnimation:(BOOL)animated
 {
+    [self strokeChartWithAnimation:animated duration:0.5];
+}
+
+- (void)strokeChartWithAnimation:(BOOL)animated duration:(CGFloat)duration
+{
     [self viewCleanupForCollection:_labels];
     //Add Labels
     if (_showLabel) {
@@ -285,7 +290,7 @@
         
         if (animated) {
             CABasicAnimation *pathLeftAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-            pathLeftAnimation.duration = 0.5;
+            pathLeftAnimation.duration = duration;
             pathLeftAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
             pathLeftAnimation.fromValue = @0.0f;
             pathLeftAnimation.toValue = @1.0f;
