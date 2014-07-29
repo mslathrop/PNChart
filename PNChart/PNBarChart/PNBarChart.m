@@ -256,7 +256,7 @@
         
         if (animated) {
             CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-            pathAnimation.duration = 0.5;
+            pathAnimation.duration = duration;
             pathAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
             pathAnimation.fromValue = @0.0f;
             pathAnimation.toValue = @1.0f;
