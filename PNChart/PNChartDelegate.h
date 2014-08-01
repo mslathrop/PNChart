@@ -10,6 +10,8 @@
 
 @protocol PNChartDelegate <NSObject>
 
+@optional
+
 /**
  * When user click on the chart line
  *
@@ -27,5 +29,7 @@
  *
  */
 - (void)userClickedOnBarCharIndex:(NSInteger)barIndex;
+
+- (void)userClickedOnBarCharIndex:(NSInteger)barIndex touchPoint:(CGPoint)touchPoint;
 
 @end
