@@ -18,6 +18,7 @@
 
 @implementation PNPieChartDataItem
 
+@synthesize description;
 
 + (instancetype)dataItemWithValue:(CGFloat)value
                             color:(UIColor*)color{
