@@ -6,7 +6,8 @@
 //  Copyright (c) 2013年 kevinzhow. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
+@import UIKit;
 
 /*
  *  System Versioning Preprocessor Macros

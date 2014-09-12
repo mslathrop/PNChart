@@ -6,7 +6,8 @@
 //  Copyright (c) 2014年 kevinzhow. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
+@import UIKit;
 
 @interface PNPieChartDataItem : NSObject
 

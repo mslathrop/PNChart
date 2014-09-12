@@ -3,7 +3,8 @@
 // Copyright (c) 2013 kevinzhow. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
+@import UIKit;
 
 /**
  *  not support PNLineChartPointStyleTriangle style recently

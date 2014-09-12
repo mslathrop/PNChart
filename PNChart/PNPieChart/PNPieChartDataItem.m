@@ -6,6 +6,9 @@
 //  Copyright (c) 2014年 kevinzhow. All rights reserved.
 //
 
+@import Foundation;
+@import UIKit;
+
 #import "PNPieChartDataItem.h"
 
 @interface PNPieChartDataItem()
