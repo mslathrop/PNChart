@@ -13,7 +13,6 @@
 #define xLabelMargin 15
 #define yLabelMargin 15
 #define yLabelHeight 11
-#define xLabelHeight 50
 #define xLabelPosAdj 3
 #define xLabalAbsWidth 90
 
@@ -37,6 +36,7 @@ typedef NSString *(^PNyLabelFromatter)(CGFloat yLabelValue);
 
 @property (nonatomic) NSMutableArray * bars;
 
+@property (nonatomic) CGFloat xLabelHeight;
 @property (nonatomic) CGFloat xLabelWidth;
 @property (nonatomic) int yValueMax;
 @property (nonatomic) UIColor *strokeColor;
